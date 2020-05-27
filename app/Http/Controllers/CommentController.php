@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CommentResource;
 use App\Model\Comment;
 use App\Model\Book;
 use Illuminate\Http\Request;
+
 
 class CommentController extends Controller
 {
@@ -15,7 +17,7 @@ class CommentController extends Controller
      */
     public function index(Book $book)
     {
-        return $book->comment;
+        return CommentResource::collection($book->comment);
 
     }
 
